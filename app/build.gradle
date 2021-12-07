@@ -21,8 +21,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildTypes.each{
-        it.buildConfigField "String", "NEWSAPI_API_KEY", apiKey
+    buildTypes.each {
+        it.buildConfigField "String", "NEWSAPI_KEY", apiKey
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
