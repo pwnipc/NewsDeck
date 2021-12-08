@@ -2,6 +2,9 @@ package com.chalie.newsdeck.ui;
 
 import static android.content.ContentValues.TAG;
 
+import static com.chalie.newsdeck.Constants.BASE_URL;
+import static com.chalie.newsdeck.Constants.NEWSAPI_KEY;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -10,7 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.chalie.newsdeck.services.NewsApiClient;
+import com.chalie.newsdeck.Constants;
 import com.chalie.newsdeck.R;
 import com.chalie.newsdeck.models.Article;
 import com.chalie.newsdeck.models.Everything;
@@ -21,6 +24,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private ListView mListView;
@@ -30,40 +35,41 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mListView = findViewById(R.id.newsUpdates);
-        NewsApi client = NewsApiClient.getClient();
-        Call<Everything> call = client.getArticles("tech");
 
-        Log.d(TAG, "onCreate: "+client);
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofit = builder.build();
 
-        call.enqueue(new Callback<Everything>() {
-            @Override
-            public void onResponse(Call<Everything> call, Response<Everything> response) {
-                if(response.isSuccessful()){
-                    List<Article> articlesList = response.body().getArticles();
-                    String[] titles = new String[articlesList.size()];
-                    String[] content = new String[articlesList.size()];
+        NewsApi newsApi = retrofit.create(NewsApi.class);
 
-                    Toast.makeText(MainActivity.this,articlesList.get(1).getTitle(),Toast.LENGTH_LONG ).show();
+        Call<Everything> call = newsApi.getArticles("tech",NEWSAPI_KEY);
 
-                    for(int i = 0; i < content.length; i++){
-                        content[i] = articlesList.get(i).getContent();
-                    }
+       call.enqueue(new Callback<Everything>() {
+           @Override
+           public void onResponse(Call<Everything> call, Response<Everything> response) {
+               if(!response.isSuccessful()){
+                   Toast.makeText(MainActivity.this, response.errorBody().toString(), Toast.LENGTH_LONG).show();
+                   return;
+               }
+               Everything articlesList = response.body();
+               List<Article> articles = articlesList.getArticles();
+               String[] authors = new String[articles.size()];
 
-                    for (int i = 0; i < titles.length; i++){
-                        titles[i] = articlesList.get(i).getTitle();
-                    }
+               for (int i = 0; i < authors.length ; i++){
+                   authors[i] = articles.get(i).getAuthor();
+               }
 
-                    ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, titles);
-                    mListView.setAdapter(adapter);
+               mListView.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1,authors));
 
-                }
-            }
+           }
 
-            @Override
-            public void onFailure(Call<Everything> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "oops :(",Toast.LENGTH_LONG).show();
+           @Override
+           public void onFailure(Call<Everything> call, Throwable t) {
+               Toast.makeText(MainActivity.this, "Something went wrong :(", Toast.LENGTH_LONG).show();
 
-            }
-        });
+           }
+       });
+
     }
 }
