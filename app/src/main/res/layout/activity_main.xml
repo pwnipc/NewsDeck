@@ -5,14 +5,15 @@
     android:layout_centerHorizontal="false">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="News On The Go" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsUpdates"
+        android:layout_below="@+id/textViewApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

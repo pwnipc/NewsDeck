@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+    <ImageView
+        android:id="@+id/imageViewNews"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/textViewNewsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewNews"
+        android:layout_toRightOf="@id/imageViewNews"
+        android:text="News Title"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewNewsDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageViewNews"
+        android:layout_toEndOf="@id/imageViewNews"
+        android:layout_below="@id/textViewNewsTitle"
+        android:text="News Title" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/textViewUrl"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_toEndOf="@id/imageViewNews"-->
+<!--        android:layout_toRightOf="@id/imageViewNews"-->
+<!--        android:text="News Title" />-->
+
+</RelativeLayout>
+</RelativeLayout>

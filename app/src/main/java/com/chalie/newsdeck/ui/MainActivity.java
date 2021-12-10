@@ -6,6 +6,8 @@ import static com.chalie.newsdeck.Constants.BASE_URL;
 import static com.chalie.newsdeck.Constants.NEWSAPI_KEY;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,12 +17,15 @@ import android.widget.Toast;
 
 import com.chalie.newsdeck.Constants;
 import com.chalie.newsdeck.R;
+import com.chalie.newsdeck.adapters.ArticleListAdapter;
 import com.chalie.newsdeck.models.Article;
 import com.chalie.newsdeck.models.Everything;
 import com.chalie.newsdeck.services.NewsApi;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,13 +33,16 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private ListView mListView;
+    @BindView(R.id.newsUpdates) RecyclerView mRecyclerView;
+    private ArticleListAdapter mArticleListAdapter;
+   // private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mListView = findViewById(R.id.newsUpdates);
+        ButterKnife.bind(this);
+        //mListView = findViewById(R.id.newsUpdates);
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
@@ -55,12 +63,13 @@ public class MainActivity extends AppCompatActivity {
                Everything articlesList = response.body();
                List<Article> articles = articlesList.getArticles();
                String[] authors = new String[articles.size()];
-
-               for (int i = 0; i < authors.length ; i++){
-                   authors[i] = articles.get(i).getAuthor();
-               }
-
-               mListView.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1,authors));
+              // mListView.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1,authors));
+               mArticleListAdapter = new ArticleListAdapter(MainActivity.this, articles);
+               mRecyclerView.setAdapter(mArticleListAdapter);
+               RecyclerView.LayoutManager layoutManager =
+                       new LinearLayoutManager(MainActivity.this);
+               mRecyclerView.setLayoutManager(layoutManager);
+               mRecyclerView.setHasFixedSize(true);
 
            }
 
