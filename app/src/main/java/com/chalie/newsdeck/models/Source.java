@@ -4,11 +4,14 @@ package com.chalie.newsdeck.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel(Parcel.Serialization.BEAN)
 public class Source {
 
     @SerializedName("id")
     @Expose
-    private Object id;
+    private String id;
     @SerializedName("name")
     @Expose
     private String name;
@@ -25,17 +28,17 @@ public class Source {
      * @param name
      * @param id
      */
-    public Source(Object id, String name) {
+    public Source(String id, String name) {
         super();
         this.id = id;
         this.name = name;
     }
 
-    public Object getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Object id) {
+    public void setId(String id) {
         this.id = id;
     }
 

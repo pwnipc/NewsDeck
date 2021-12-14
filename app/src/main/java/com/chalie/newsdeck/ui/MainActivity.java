@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
            @Override
            public void onFailure(Call<Everything> call, Throwable t) {
+               Log.d(TAG, "onFailure: "+t.getMessage());
                Toast.makeText(MainActivity.this, "Something went wrong :(", Toast.LENGTH_LONG).show();
 
            }

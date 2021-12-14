@@ -4,6 +4,9 @@ package com.chalie.newsdeck.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel(Parcel.Serialization.BEAN)
 public class Article {
 
     @SerializedName("source")

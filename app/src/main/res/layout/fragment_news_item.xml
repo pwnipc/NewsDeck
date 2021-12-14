@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/imageViewNews"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingTop="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/textViewNewsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="News Titile"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewNewsTitle"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="http://w.w"
+                android:textColor="@color/black"
+                android:textStyle="italic" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/viewNews"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:id="@+id/websiteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="content"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Full Article"
+                android:id="@+id/viewNews"
+                android:layout_alignParentBottom="true"
+                android:background="@color/purple_200"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

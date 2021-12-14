@@ -1,6 +1,7 @@
 package com.chalie.newsdeck.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chalie.newsdeck.R;
 import com.chalie.newsdeck.models.Article;
+import com.chalie.newsdeck.ui.ArticleDetailActivity;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -47,7 +52,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
         return articles.size();
     }
 
-    public class ArticleViewHolder extends RecyclerView.ViewHolder {
+    public class ArticleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.imageViewNews) ImageView mNewsImageView;
         @BindView(R.id.textViewNewsTitle) TextView mTitleTextView;
         @BindView(R.id.textViewNewsDescription) TextView mDescriptionTextView;
@@ -59,12 +64,25 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindNews(Article article) {
             mTitleTextView.setText(article.getTitle());
             mDescriptionTextView.setText(article.getDescription());
-          //  mUrlTextView.setText(article.getUrl());
+            Picasso.get().load(article.getUrlToImage()).into(mNewsImageView);
+            //  mUrlTextView.setText(article.getUrl());
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, ArticleDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("articles", Parcels.wrap(articles));
+            mContext.startActivity(intent);
+
+
         }
     }
 
