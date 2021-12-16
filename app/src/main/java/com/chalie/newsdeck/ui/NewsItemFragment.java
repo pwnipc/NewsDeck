@@ -16,6 +16,10 @@ import android.widget.Toast;
 
 import com.chalie.newsdeck.R;
 import com.chalie.newsdeck.models.Article;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -39,6 +43,7 @@ public class NewsItemFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.textViewUrl) TextView textViewUrl;
     @BindView(R.id.websiteTextView) TextView websiteTextView;
     @BindView(R.id.viewNews) Button viewNews;
+    @BindView(R.id.saveNews) Button saveNews;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -83,6 +88,7 @@ public class NewsItemFragment extends Fragment implements View.OnClickListener {
         textViewUrl.setText(mArticle.getUrl());
         websiteTextView.setText(mArticle.getContent());
         viewNews.setOnClickListener(this);
+        saveNews.setOnClickListener(this);
 
         return view;
         //return inflater.inflate(R.layout.fragment_news_item, container, false);
@@ -95,6 +101,22 @@ public class NewsItemFragment extends Fragment implements View.OnClickListener {
             Toast.makeText(getContext(),"Please wait...",Toast.LENGTH_SHORT).show();
             Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mArticle.getUrl()));
             startActivity(webIntent);
+        }else if(v == saveNews){
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
+            DatabaseReference restaurantRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference("articles")
+                    .child(uid);
+
+
+            DatabaseReference pushRef = restaurantRef.push();
+            String pushId = pushRef.getKey();
+            mArticle.setPushId(pushId);
+            pushRef.setValue(mArticle);
+
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }

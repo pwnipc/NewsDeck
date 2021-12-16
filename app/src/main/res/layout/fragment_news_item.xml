@@ -80,6 +80,16 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/saveNews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/viewNews"
+                android:background="@color/purple_200"
+                android:text="Save To Firebase"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="View Full Article"
