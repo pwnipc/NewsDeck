@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "308561969429",
+    "project_id": "newsdeck-3d529",
+    "storage_bucket": "newsdeck-3d529.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308561969429:android:e281e752400ce26202291c",
+        "android_client_info": {
+          "package_name": "com.chalie.newsdeck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308561969429-mv63hfc4o58a6tqdlnlbfb905fsip6vk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVnaj1q3ZgPB0edJeFE80P4m_fOZZ3760"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308561969429-mv63hfc4o58a6tqdlnlbfb905fsip6vk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
