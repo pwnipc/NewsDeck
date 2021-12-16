@@ -38,6 +38,7 @@ public class Article {
      * No args constructor for use in serialization
      * 
      */
+    private String pushId;
     public Article() {
     }
 
@@ -62,6 +63,14 @@ public class Article {
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
         this.content = content;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
     public Source getSource() {
