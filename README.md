@@ -52,12 +52,11 @@ This project is mantained by:
  <h2 align="center">  Connect with me </h2>
 
 <p align="center"> 
-<a href="https://twitter.com/Chal13W1zz" target="blank"><img src="https://img.shields.io/twitter/follow/Chal13W1zz?logo=twitter&style=social" alt="@Chal13W1zz"/>
-<a href="https://t.me/Chal13W1zz" target="blank"><img src="https://img.shields.io/badge/%40Chal13W1zz-Telegram-blue" alt="@Chal13W1zz" />
-<a href="https://www.youtube.com/channel/UCYtzy_RI9Bp8CWgNZzTPUmA?sub_confirmation=1" target="blank"><img src="https://img.shields.io/youtube/channel/views/UCYtzy_RI9Bp8CWgNZzTPUmA?label=FreeTechMods&style=social" alt="FreeTechmods" />
+<a href="https://twitter.com/Chal13W1zz" target="blank"><img src="https://img.shields.io/twitter/follow/Chal13W1zz?logo=twitter&style=social" alt="@Chal13W1zz"/></a>
+<a href="https://t.me/Chal13W1zz" target="blank"><img src="https://img.shields.io/badge/%40Chal13W1zz-Telegram-blue" alt="@Chal13W1zz"/></a>
+<a href="https://www.youtube.com/channel/UCYtzy_RI9Bp8CWgNZzTPUmA?sub_confirmation=1" target="blank"><img src="https://img.shields.io/youtube/channel/views/UCYtzy_RI9Bp8CWgNZzTPUmA?label=FreeTechMods&style=social" alt="FreeTechmods" /></a>
     <br/>
-     <a target="blank" href="https://www.paypal.com/donate?hosted_button_id=PJSAAEHCKWV5G"><img  align="center" alt="Donate" width="60px"
-     src="https://ionicabizau.github.io/badges/paypal.svg" /></a>
+     <a target="blank" href="https://www.paypal.com/donate?hosted_button_id=PJSAAEHCKWV5G"><img align="center" alt="Donate" width="60px" src="https://ionicabizau.github.io/badges/paypal.svg" alt="paypal donate"/></a>
 </p>
 
 
