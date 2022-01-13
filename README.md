@@ -8,7 +8,7 @@ You can install a compiled build from <a href="https://github.com/Chal13W1zz/New
 ## Build From Source
 Clone this repository and import into **Android Studio**
 ```bash
-git clone https://github.com/Chal13W1zz/NewsDeck.git
+git clone https://github.com/Chal13W1zz/NewsDeck3.git
 ```
 
 
