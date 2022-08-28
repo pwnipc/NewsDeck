@@ -1,14 +1,14 @@
-# NewsDeckV3
+# NewsDeck
 News updates on go.
 
 
 ## Installation
-You can install a compiled build from <a href="https://github.com/Chal13W1zz/NewsDeckV3/releases"> here</a>
+You can install a compiled build from <a href="https://github.com/Chal13W1zz/NewsDeck/releases"> here</a>
 
 ## Build From Source
 Clone this repository and import into **Android Studio**
 ```bash
-git clone https://github.com/Chal13W1zz/NewsDeck3.git
+git clone https://github.com/Chal13W1zz/NewsDeck.git
 ```
 
 
@@ -45,8 +45,8 @@ This project is mantained by:
 
 ## Bugs
 - No Known Bugs
-  - If you find a bug, kindly open an issue <a href="https://github.com/Chal13W1zz/NewsDeckV3/issues/new">Here</a> .
-  - If you'd like to request a new feature, feel free to do so by opening an issue <a href="https://github.com/Chal13W1zz/NewsDeckV3/issues/new">Here</a>.
+  - If you find a bug, kindly open an issue <a href="https://github.com/Chal13W1zz/NewsDeck/issues/new">Here</a> .
+  - If you'd like to request a new feature, feel free to do so by opening an issue <a href="https://github.com/Chal13W1zz/NewsDeck/issues/new">Here</a>.
 
 
  <h2 align="center">  Connect with me </h2>
@@ -62,6 +62,6 @@ This project is mantained by:
 
 
 ##
-  <p align="center">MIT <a href="https://github.com/Chal13W1zz/NewsDeckV3/blob/main/LICENSE">Licence</a>
+  <p align="center">MIT <a href="https://github.com/Chal13W1zz/NewsDeck/blob/main/LICENSE">Licence</a>
 Copyright © 2021, <a href="https://github.com/Chal13W1zz">Chalie</a>
 All rights reserved.</p>
